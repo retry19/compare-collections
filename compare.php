@@ -20,7 +20,7 @@ foreach ($text_1 as $text1) {
 
   foreach ($text_2 as $text2) {
     $textRight = trim(strtolower($text2));
-    if ($textLeft === $textRight) {
+    if ($textLeft == $textRight) {
       $isMatch = true;
     }
   }
