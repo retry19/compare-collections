@@ -4,32 +4,47 @@ $_SESSION['is_compare'] = false;
 $_SESSION['errors'] = [];
 $_SESSION['result'] = [];
 
-$text_1 = explode(PHP_EOL, $_POST['text_1']);
+$firstName = explode(PHP_EOL, $_POST['first_name']);
+$lastName = explode(PHP_EOL, $_POST['last_name']);
 $text_2 = explode(PHP_EOL, $_POST['text_2']);
 
 $errors = [];
 $result = [];
 
-foreach ($text_1 as $text1) {
-  if ($text1 == '') {
-    continue;
-  }
+$countLoop = 0;
+if (count($firstName) >= count($lastName)) {
+  $countLoop = count($firstName);
+} else {
+  $countLoop = count($lastName);
+}
 
-  $textLeft = trim(strtolower($text1));
+for ($i = 0; $i < $countLoop; $i++) {
+  $fName = trim(strtolower($firstName[$i] ?? ''));
+  $lName = trim(strtolower($lastName[$i] ?? ''));
   $isMatch = false;
+
+  $name = '';
+
+  if ($fName && $lName) {
+    $name = $fName. ' '. $lName;
+  } else if (!$fName || $fName == '-') {
+    $name = $lName;
+  } else if (!$lName || $lName == '-') {
+    $name = $fName;
+  }
 
   foreach ($text_2 as $text2) {
     $textRight = trim(strtolower($text2));
-    if ($textLeft == $textRight) {
+    if ($name == $textRight) {
       $isMatch = true;
     }
   }
 
   if (!$isMatch) {
-    array_push($errors, $text1);
-    array_push($result, "<p class=\"font-weight-bold bg-danger text-light m-0 p-0\">{$text1} ❎</p>");
+    array_push($errors, $name);
+    array_push($result, "<p class=\"font-weight-bold bg-danger text-light m-0 p-0\">{$name} ❎</p>");
   } else {
-    array_push($result, "{$text1} ✅");
+    array_push($result, "{$name} ✅");
   }
 }
 

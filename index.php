@@ -45,8 +45,11 @@
 
       <form action="compare.php" method="post">
         <div class="row my-4">
-          <div class="col-md-6">
-            <textarea class="form-control" name="text_1" placeholder="Masukan daftar namanya disini (yang hendak dibandingkan / input peserta), contoh : &#10;&#10;Shinomiya Kaguya&#10;Hayasaka Ai&#10;Shirogane Miyuki&#10;Ishigami Yuu" rows="15" cols="100"></textarea>
+          <div class="col-md-3">
+            <textarea class="form-control" name="first_name" placeholder="Masukan daftar namanya disini (nama depan), contoh : &#10;&#10;Shinomiya Kaguya&#10;Hayasaka Ai&#10;Shirogane Miyuki&#10;Ishigami Yuu" rows="15" cols="100"></textarea>
+          </div>
+          <div class="col-md-3">
+            <textarea class="form-control" name="last_name" placeholder="Masukan daftar namanya disini (nama belakang), contoh : &#10;&#10;Shinomiya Kaguya&#10;Hayasaka Ai&#10;Shirogane Miyuki&#10;Ishigami Yuu" rows="15" cols="100"></textarea>
           </div>
           <div class="col-md-6">
             <textarea class="form-control" name="text_2" placeholder="Masukan daftar namanya disini (data milik panitia / ASLI), contoh : &#10;&#10;Shinomiya Kaguya&#10;Hayasaka Ai&#10;Shirogane Miyuki&#10;Ishigami Yuu" rows="15" cols="100"></textarea>
